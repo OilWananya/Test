@@ -35,7 +35,7 @@
                 <b-button
                     v-else
                     class="btn-update"
-                    @click.prevent="modalDelete"
+                    @click.prevent="modalDelete(data.item)"
                 >
                     <div>Delete</div>
                 </b-button>
@@ -45,18 +45,25 @@
             ref="modalUpdate"
             :detail="dataList"
          />
+         <ModalDelete
+            ref="modalDelete"
+            :detail="dataDelete"
+         />
     </div>
 </template>
 
 <script>
-import ModalUpdate from '../../components/Transaction/ModalUpdate.vue'
+import ModalUpdate from '../../components/Transaction/ModalUpdate.vue';
+import ModalDelete from '../../components/Transaction/ModalDelete.vue';
 export default {
     components:{
-        ModalUpdate
+        ModalUpdate,
+        ModalDelete
     },
     data(){
         return{
-            dataList : {}
+            dataList : {},
+            dataDelete : {}
         }
     },
     props:{
@@ -80,6 +87,12 @@ export default {
                 this.$refs.modalUpdate.show();
             })
         },
+        modalDelete(data){
+            this.dataDelete = data;
+            this.$nextTick().then(() => {
+                this.$refs.modalDelete.show();
+            })
+        }
     }
 }
 </script>

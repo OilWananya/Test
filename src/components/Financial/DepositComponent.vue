@@ -73,7 +73,8 @@ export default {
                 amount : 0,
                 status : true ,
                 email : "" 
-            }
+            },
+            sum : 0
         }
     },
     validations:{
@@ -99,10 +100,10 @@ export default {
                 if(parseInt(this.amount) <= 0){
                     this.errMsg = "จำนวนเงินไม่เพียงพอ"
                 }else{
-                    
+                    this.$emit("withdrawAmount",this.amount)
                 }
             }else{
-                
+                this.$emit('closeModal')
             }
         },
         isNumber(evt) {

@@ -18,8 +18,8 @@ function configRoutes() {
             component: () => import ('@/views/pages/Login/index.vue')
         },
         {
-            path: '/financial',
-            name: 'FinancialPage',
+            path: '/',
+            name: '',
             component: () => import ('@/containers/TheContainer'),
             meta: { requiresAuth: true },
             children: [

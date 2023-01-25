@@ -1,14 +1,17 @@
 <template>
   <div class="c-app">
-    <!-- <TheSidebar /> -->
     <Header></Header>
     <div class="c-wrapper">
       <NavBar v-if="!isScreenMobile"></NavBar>
+      <div>
+          <div class="f-right"><b-button @click.prevent="clearCookies">Logout</b-button></div>
+        </div>
       <div class="c-body" :class="{ 'mobile': isScreenMobile }">
+        
         <main class="c-main">
           <b-container fluid :class="[$route.name === 'FinancialPage' ? 'FinancialPage' : '']">
             <transition name="fade">
-              <!-- <router-view></router-view> -->
+              <router-view></router-view>
             </transition>
           </b-container>
         </main>
@@ -18,13 +21,11 @@
 </template>
 
 <script>
-import TheSidebar from "./TheSidebar";
 import NavBar from '../components/NavBar.vue'
 import Header from '../components/Header.vue'
 export default {
   name: "TheContainer",
   components: {
-    TheSidebar,
     NavBar,
     Header,
   },
@@ -34,6 +35,13 @@ export default {
     },
     isScreenMobile() {
       return this.screenWidth < 380
+    }
+  },
+  methods:{
+    clearCookies(){
+      this.$cookies.remove('emailTestClickNext');
+      this.$cookies.remove('setLoginTestClickNext');
+      window.location.href = "/";
     }
   }
 };
@@ -59,5 +67,8 @@ export default {
 
 .report_customer_detail {
   padding-right: 15px;
+}
+.f-right{
+  float: right;
 }
 </style>

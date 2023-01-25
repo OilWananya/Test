@@ -1,9 +1,11 @@
 <template>
-  <div class="header">
-    <div class="hamburger" v-show="screenWidth < 380" @click="onHamburgerClick">
-      <div class="hamburger-item"></div>
-      <div class="hamburger-item"></div>
-      <div class="hamburger-item"></div>
+  <div>
+    <div class="header">
+      <div class="hamburger" v-show="screenWidth < 380" @click="onHamburgerClick">
+        <div class="hamburger-item"></div>
+        <div class="hamburger-item"></div>
+        <div class="hamburger-item"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -22,7 +24,7 @@ export default {
   },
   methods: {
     onHamburgerClick() {
-      // console.log(this.$store)
+
     }
   }
   
@@ -41,7 +43,7 @@ export default {
   top:0;
   width: 100vw;
   height: 40px;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   background-color: white;
 }
 .hamburger {

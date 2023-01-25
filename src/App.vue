@@ -1,10 +1,9 @@
 <template>
   <div>
-    <Header ></Header>
-    <div class="container">
-      <NavBar v-if="!isScreenMobile"></NavBar>
+    <Header v-if="$cookies.get('setLoginTestClickNext')"></Header>
+    <div class="" >
+      <NavBar v-if="!isScreenMobile && $cookies.get('setLoginTestClickNext')" ></NavBar>
       <router-view></router-view>
-
     </div>
   </div>
 </template>

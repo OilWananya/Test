@@ -5,6 +5,7 @@
             type="deposit"
             :total="amount"
             @getTotal="getTotalFromDeposit"
+            @withdrawAmount="withdrawAmount"
         />
         <ModalDisplay
             type="deposit"
@@ -26,12 +27,27 @@ export default {
     },
     data(){
         return{
-            amount:0
+            amount:0,
+            dataList : []
         }
+    },
+    created(){
+        this.dataList = this.$store.state.stateDeposit;
+        let addAmount = 0;
+        let deleteAmount = 0;
+        this.dataList.map((element,index) => { 
+            if(element.status){
+                addAmount = element.amount + addAmount;
+                this.amount = addAmount;
+            }else{
+                deleteAmount = addAmount - element.amount;
+                this.amount = deleteAmount;
+            }
+            
+        })
     },
     methods:{
         setDeposit(){
-            const arr = [];
             let totalAmount = this.amount
             this.form = {
                 datetime : new Date().toLocaleString(),
@@ -39,8 +55,7 @@ export default {
                 status : true ,
                 email : this.$cookies.get("emailTestClickNext") 
             }
-            arr.push(this.form);
-            this.$store.commit('setDeposit',arr);
+            this.$store.commit('setDeposit',this.form);
             this.$nextTick().then(() => {
                 this.$refs.modalDisplay.hide();
                 this.$router.push("/transaction");
@@ -50,6 +65,19 @@ export default {
         getTotalFromDeposit(val){
             this.amount = val;
             this.$refs.modalDisplay.show();
+        },
+        withdrawAmount(val){
+            this.form = {
+                datetime : new Date().toLocaleString(),
+                amount : parseFloat(val),
+                status : false ,
+                email : this.$cookies.get("emailTestClickNext") 
+            }
+            this.$store.commit('setDeposit',this.form);
+            this.$nextTick().then(() => {
+                this.$refs.modalDisplay.hide();
+                this.$router.push("/transaction");
+            })
         }
     }
 }
