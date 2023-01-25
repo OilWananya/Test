@@ -8,7 +8,7 @@
         <main class="c-main">
           <b-container fluid :class="[$route.name === 'FinancialPage' ? 'FinancialPage' : '']">
             <transition name="fade">
-              <router-view></router-view>
+              <!-- <router-view></router-view> -->
             </transition>
           </b-container>
         </main>

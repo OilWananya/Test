@@ -1,12 +1,10 @@
 <template>
   <nav class="navbar-container">
-    <div class="nav-item" v-for="(menu, index) in menus" :key="index">
+    <div class="nav-item" v-for="(menu, index) in menus"  :key="index">
       <div class="menu-item" @click="onMenuClick(menu.to)" :class="{ active: isMenuActive(menu.to) }">
         {{ menu.name }}
       </div>
-
     </div>
-
   </nav>
 </template>
 <script>
