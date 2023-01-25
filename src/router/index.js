@@ -22,14 +22,12 @@ function configRoutes() {
             name: 'FinancialPage',
             component: () => import ('@/views/pages/Financial/index.vue'),
             meta: { requiresAuth: true },
-            children: [
-                {
-                    path: '/transaction',
-                    name: 'TransactionPage',
-                    component: () => import ('@/views/pages/Transaction/index.vue'),
-                    meta: { requiresAuth: true }
-                }
-            ]
+        },
+        {
+            path: '/transaction',
+            name: 'TransactionPage',
+            component: () => import ('@/views/pages/Transaction/index.vue'),
+            meta: { requiresAuth: true }
         }
     ]
 }

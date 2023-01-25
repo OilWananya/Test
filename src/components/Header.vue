@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="hamburger" v-show="screenWidth < 380" @click="onHamburgerClick">
+    <div class="hamburger" v-show="$parent.window.width < 380" @click="onHamburgerClick">
       <div class="hamburger-item"></div>
       <div class="hamburger-item"></div>
       <div class="hamburger-item"></div>
@@ -15,14 +15,9 @@ export default {
 
     }
   },
-  computed: {
-    screenWidth() {
-      return window.innerWidth
-    }
-  },
   methods: {
     onHamburgerClick() {
-      console.log(this.$store)
+      console.log(this.$parent)
     }
   }
   
