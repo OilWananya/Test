@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="block">
         <InputText
             v-model="amount"
             size="lg"
@@ -133,5 +133,9 @@ export default {
     }
     .text-err{
         color: red;
+    }
+    .block{
+        margin: auto;
+        width: max-content;
     }
 </style>
