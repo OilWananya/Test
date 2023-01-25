@@ -1,6 +1,5 @@
 <template>
   <nav class="navbar-container">
-
     <div class="nav-item" v-for="(menu, index) in menus">
       <div class="menu-item" @click="onMenuClick(menu.to)" :class="{ active: isMenuActive(menu.to) }">
         {{ menu.name }}
