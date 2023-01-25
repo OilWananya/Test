@@ -1,6 +1,6 @@
 <template>
     <div class="div-input">
-        <div :class="['text-center px-1 input-custom', { error: isValidate }]">
+        <div :class="['px-1 input-custom', { error: isValidate }]">
             <label>
                 {{ textFloat }}
                 <span v-if="isRequired" class="text-danger">*</span>
@@ -118,7 +118,6 @@ export default {
   color: gray;
   font-size: 16px;
   margin-bottom: 2px;
-  width: 30%;
   margin: auto;
 }
 .input-custom > input {

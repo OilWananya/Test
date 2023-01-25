@@ -1,9 +1,9 @@
 <template>
     <div>
         <b-container>
-            <div class="flex-column">
+            <div>
                 <form id="form">
-                    <div class="mb-2 py-3">
+                    <div class="block-login mt-5">
                         <InputText
                             v-model="form.email"
                             size="lg"
@@ -35,7 +35,7 @@
                             <span v-if="error" class="text-white">{{ error }}</span>
                         </div>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center mt-3">
                         <b-button
                             block
                             type="button"
@@ -110,7 +110,7 @@ export default {
 <style lang="scss" scoped>
 .btn-login {
   font-size: 16px;
-  background-color: gray;
+  background-color: #252525;
   color: white;
   border: none;
 }
@@ -118,5 +118,9 @@ export default {
   background-color: red;
   color: white ;
   border: none;
+}
+.block-login{
+  margin: auto;
+  width: max-content;
 }
 </style>

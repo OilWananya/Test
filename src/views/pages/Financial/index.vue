@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div v-if="amount" class="text-center">จำนวนเงินคงเหลือ {{amount}} บาท</div>
+    <div class="mt-3">
+        <div class="text-center">จำนวนเงินคงเหลือ {{amount ? amount : 0 }} บาท</div>
         <DepositComponent 
             type="deposit"
             :total="amount"
