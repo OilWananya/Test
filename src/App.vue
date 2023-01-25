@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Header v-if="$cookies.get('setLoginTestClickNext')"></Header>
-    <div class="" >
-      <NavBar v-if="!isScreenMobile && $cookies.get('setLoginTestClickNext')" ></NavBar>
+    <Header ></Header>
+    <div class="custom-container" :class="{'mobile': isScreenMobile}">
+      <NavBar v-if="!isScreenMobile"></NavBar>
       <router-view></router-view>
     </div>
   </div>
@@ -50,11 +50,11 @@ export default {
 </script>
 
 <style lang="css">
-.c-body {
+.custom-container {
   margin: 40px 0 0 200px;
 }
 
-.c-body.mobile {
+.custom-container.mobile {
   margin: 40px 0 0 0;
 }
 </style>
