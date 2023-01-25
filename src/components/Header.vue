@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" v-if="$cookies.get('setLoginTestClickNext')">
     <div class="hamburger" v-show="$parent.window.width < 380" @click="onHamburgerClick">
       <div class="hamburger-item"></div>
       <div class="hamburger-item"></div>

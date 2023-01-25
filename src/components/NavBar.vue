@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar-container">
+  <nav class="navbar-container" v-if="$cookies.get('setLoginTestClickNext')"> 
     <div class="nav-item" v-for="(menu, index) in menus"  :key="index">
       <div class="menu-item" @click="onMenuClick(menu.to)" :class="{ active: isMenuActive(menu.to) }">
         {{ menu.name }}
