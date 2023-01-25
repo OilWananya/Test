@@ -93,7 +93,7 @@ export default {
             if (this.$v.form.$error) return;
             this.$cookies.set("setLoginTestClickNext", true);
             this.$cookies.set("emailTestClickNext",this.form.email);
-            window.location.href = "/Financial";
+            window.location.href = "/financial";
         },
         handleSubmit(){
             this.$v.form.$touch();
