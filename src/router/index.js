@@ -20,9 +20,15 @@ function configRoutes() {
         {
             path: '/financial',
             name: 'FinancialPage',
-            component: () => import ('@/views/pages/Financial/index.vue'),
+            component: () => import ('@/containers/TheContainer'),
             meta: { requiresAuth: true },
             children: [
+                {
+                    path: '/financial',
+                    name: 'FinancialPage',
+                    component: () => import ('@/views/pages/Financial/index.vue'),
+                    meta: { requiresAuth: true }
+                },
                 {
                     path: '/transaction',
                     name: 'TransactionPage',

@@ -6,7 +6,6 @@
       <NavBar v-if="!isScreenMobile"></NavBar>
       <div class="c-body" :class="{ 'mobile': isScreenMobile }">
         <main class="c-main">
-
           <b-container fluid :class="[$route.name === 'FinancialPage' ? 'FinancialPage' : '']">
             <transition name="fade">
               <router-view></router-view>

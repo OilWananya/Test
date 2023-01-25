@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     onHamburgerClick() {
-      console.log(this.$store)
+      // console.log(this.$store)
     }
   }
   

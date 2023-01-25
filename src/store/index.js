@@ -15,7 +15,7 @@ export const store = new Vuex.Store({
             state.screenSize.height = screenSize.height
         },
         setDeposit: async function (state, val) {
-            state.stateDeposit = val;
+            state.stateDeposit.push(val)
         },
     },
     actions: {

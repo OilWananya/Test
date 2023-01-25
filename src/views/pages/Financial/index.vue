@@ -45,6 +45,7 @@ export default {
                 this.$refs.modalDisplay.hide();
                 this.$router.push("/transaction");
             })
+            
         },
         getTotalFromDeposit(val){
             this.amount = val;
