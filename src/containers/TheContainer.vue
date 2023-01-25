@@ -1,8 +1,8 @@
 <template>
   <div class="c-app">
-    <Header></Header>
+    <Header v-if="$cookies.get('setLoginTestClickNext')"></Header>
     <div class="c-wrapper">
-      <NavBar v-if="!isScreenMobile"></NavBar>
+      <NavBar v-if="!isScreenMobile && $cookies.get('setLoginTestClickNext')"></NavBar>
       <div>
           <div class="f-right"><b-button @click.prevent="clearCookies">Logout</b-button></div>
         </div>
