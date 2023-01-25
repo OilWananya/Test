@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <Header ></Header>
     <div class="container">
       <NavBar v-if="!isScreenMobile"></NavBar>
       <router-view></router-view>
@@ -18,9 +18,30 @@ export default {
     NavBar,
     Header,
   },
+  data() {
+    return {
+      window: {
+        width: 0,
+        height: 0,
+      }
+    }
+  },
+  created() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+    }
+  },
   computed: {
     screenWidth() {
-      return window.innerWidth
+      return this.window.width
     },
     isScreenMobile() {
       return this.screenWidth < 380
