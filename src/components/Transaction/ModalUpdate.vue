@@ -69,10 +69,10 @@ export default {
                     element.amount = data;
                 }
             })
-            arr.push(dataList)
-            this.$store.commit('stateDeposit',dataList);
+            // arr.push(dataList)
+            console.log(dataList)
+            this.$store.commit('setDeposit',dataList);
             this.isShowModal = false;
-            this.$router.push('/transaction');
         }
     }
 }

@@ -71,7 +71,7 @@ export default {
                     dataList.splice(index, 1);
                 }
             })
-            this.$store.commit('stateDeposit',dataList);
+            this.$store.commit('setDeposit',dataList);
             this.isShowModal = false;
             this.$router.push('/transaction');
         }

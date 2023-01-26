@@ -7,7 +7,8 @@ export const store = new Vuex.Store({
             width: 0,
             height: 0
         },
-        stateDeposit : []
+        stateDeposit: [],
+        cashBalance: 0,
     },
     mutations: {
         setScreenSize(state, screenSize) {
@@ -15,7 +16,10 @@ export const store = new Vuex.Store({
             state.screenSize.height = screenSize.height
         },
         setDeposit: async function (state, val) {
-            state.stateDeposit.push(val)
+            state.stateDeposit = val || []
+        },
+        setCashBalance: async function (state, val) {
+            state.cashBalance = val
         },
     },
     actions: {

@@ -82,6 +82,9 @@ export default {
             required
         }
     },
+    mounted() {
+        this.amount = 0
+    },
     methods:{
         checkAmount(){
             this.$v.amount.$touch();
@@ -98,11 +101,12 @@ export default {
         btnCancel(){
             if(this.type === 'deposit'){
                 if(parseInt(this.amount) <= 0){
-                    this.errMsg = "จำนวนเงินไม่เพียงพอ"
+                    this.errMsg = "จำนวนเงินถอนต้องมากกว่า 0"
                 }else{
                     this.$emit("withdrawAmount",this.amount)
                 }
             }else{
+                console.log('emit close')
                 this.$emit('closeModal')
             }
         },

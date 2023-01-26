@@ -3,15 +3,13 @@
     <Header v-if="$cookies.get('setLoginTestClickNext')"></Header>
     <div class="c-wrapper">
       <NavBar v-if="!isScreenMobile && $cookies.get('setLoginTestClickNext')"></NavBar>
-      <div>
-          <div class="f-right"><b-button @click.prevent="clearCookies">Logout</b-button></div>
-        </div>
+     
       <div class="c-body" :class="{ 'mobile': isScreenMobile }">
-        
+
         <main class="c-main">
           <b-container fluid :class="[$route.name === 'FinancialPage' ? 'FinancialPage' : '']">
             <transition name="fade">
-              <router-view></router-view>
+              <!-- <router-view></router-view> -->
             </transition>
           </b-container>
         </main>
@@ -37,8 +35,8 @@ export default {
       return this.screenWidth < 380
     }
   },
-  methods:{
-    clearCookies(){
+  methods: {
+    clearCookies() {
       this.$cookies.remove('emailTestClickNext');
       this.$cookies.remove('setLoginTestClickNext');
       window.location.href = "/";
@@ -48,13 +46,6 @@ export default {
 </script>
 
 <style scoped>
-.c-body {
-  margin: 40px 0 0 200px;
-}
-.c-body.mobile {
-  margin: 40px 0 0 0;
-}
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;
@@ -68,7 +59,8 @@ export default {
 .report_customer_detail {
   padding-right: 15px;
 }
-.f-right{
+
+.f-right {
   float: right;
 }
 </style>

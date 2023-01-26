@@ -50,11 +50,11 @@ export default {
 </script>
 
 <style lang="css">
-/* .custom-container {
+.custom-container {
   margin: 40px 0 0 200px;
 }
 
 .custom-container.mobile {
   margin: 40px 0 0 0;
-} */
+}
 </style>

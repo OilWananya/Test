@@ -15,27 +15,19 @@ function configRoutes() {
         {
             path: '/',
             name: 'Login',
-            component: () => import ('@/views/pages/Login/index.vue')
+            component: () => import('@/views/pages/Login/index.vue')
         },
         {
-            path: '/',
-            name: '',
-            component: () => import ('@/containers/TheContainer'),
-            meta: { requiresAuth: true },
-            children: [
-                {
-                    path: '/financial',
-                    name: 'FinancialPage',
-                    component: () => import ('@/views/pages/Financial/index.vue'),
-                    meta: { requiresAuth: true }
-                },
-                {
-                    path: '/transaction',
-                    name: 'TransactionPage',
-                    component: () => import ('@/views/pages/Transaction/index.vue'),
-                    meta: { requiresAuth: true }
-                }
-            ]
+            path: '/financial',
+            name: 'FinancialPage',
+            component: () => import('@/views/pages/Financial/index.vue'),
+            meta: { requiresAuth: true }
+        },
+        {
+            path: '/transaction',
+            name: 'TransactionPage',
+            component: () => import('@/views/pages/Transaction/index.vue'),
+            meta: { requiresAuth: true }
         }
     ]
 }
